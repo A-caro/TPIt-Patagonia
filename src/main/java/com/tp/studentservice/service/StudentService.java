@@ -4,6 +4,8 @@ import com.tp.studentservice.model.Student;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalDouble;
+import java.util.stream.Stream;
 
 public interface StudentService {
 
@@ -19,9 +21,19 @@ public interface StudentService {
 
     int edadPromedio();
 
-//   List<Student> mayorMenor();
+    int estudianteConMasEdad();
 
-//    int promedioEstudianteMasGrande();
+    int estudianteConMenosEdad();
+
+    Stream<String> getDatosStudents();
+
+    List<Student> estudianteMayor();
+
+    List<Student> estudianteMenor();
+
+    OptionalDouble promedioEstudianteMayor();
+
+    OptionalDouble promedioEstudianteMenor();
 
 
 }
