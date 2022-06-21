@@ -77,7 +77,7 @@ public class StudentController {
         return studentService.promedioEstudianteMenor();
     }
 
-    @GetMapping("funcionaplis")
+    @GetMapping("/students/datos")
     public Stream<String> getDatosStudents(){
         return studentService.getDatosStudents();
     }
