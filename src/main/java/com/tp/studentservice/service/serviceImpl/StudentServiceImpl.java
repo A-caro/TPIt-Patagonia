@@ -10,9 +10,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalDouble;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -57,6 +55,9 @@ public class StudentServiceImpl implements StudentService {
                 mapToInt(student -> Period.between(student.getBirthday(), LocalDate.now()).getYears()).average().orElseThrow();
     }
 
+
+
+
 //Mostrar el student con más edad y con menos edad.
 
     public int estudianteConMasEdad() {
@@ -70,11 +71,10 @@ public class StudentServiceImpl implements StudentService {
     }
 
 //Mostrar solo el id, surname y name de los students. Por ejemplo: 1 - , Lovelace, Ada.
-//El "Stream<String>" fue una recomendación del ide y no un razonamiento propio.
 
-    public Stream<String> getDatosStudents(){
+    public String getDatosStudents(){
         List<Student> students = studentRepository.findAll();
-        return students.stream().map(s-> s.getId() + " , " + s.getSurname() + ", " + s.getName());
+        return students.stream().map(s-> s.getId() + " , " + s.getSurname() + " , " + s.getName()).collect(Collectors.joining("\n"));
     }
 
 //Listar students mayores de edad y los menores de edad.
@@ -91,19 +91,20 @@ public class StudentServiceImpl implements StudentService {
     }
 
 //Mostrar la edad promedio de los mayores de edad.
-//El "OptionalDouble" fue una recomendación del ide y no un razonamiento propio.
 
-    public OptionalDouble promedioEstudianteMayor(){
+    public Integer promedioEstudianteMayor(){
         List<Student> student = studentRepository.findAll();
-        return student.stream().mapToInt(s -> Period.between(s.getBirthday(),LocalDate.now()).getYears()).filter(s -> s > 18).average();
+        return (int)student.stream().mapToInt(s -> Period.between(s.getBirthday(),LocalDate.now()).getYears()).filter(s -> s > 18).average().orElse(0);
     }
 
 
 //Mostrar la edad promedio de los menores de edad.
 
-    public OptionalDouble promedioEstudianteMenor(){
+    public Integer promedioEstudianteMenor(){
         List<Student> student = studentRepository.findAll();
-        return  student.stream().mapToInt(s -> Period.between(s.getBirthday(),LocalDate.now()).getYears()).filter(s -> s < 18).average();
+        return (int)student.stream().mapToInt(s -> Period.between(s.getBirthday(),LocalDate.now()).getYears()).filter(s -> s < 18).average().orElse(0);
     }
+
+
 }
 

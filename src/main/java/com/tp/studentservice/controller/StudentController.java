@@ -68,17 +68,17 @@ public class StudentController {
 
 
     @GetMapping("/studentMayor/promedio")
-    public OptionalDouble promedioEstudianteMayor() {
+    public Integer promedioEstudianteMayor() {
         return studentService.promedioEstudianteMayor();
     }
 
     @GetMapping("/studentMenor/promedio")
-    public OptionalDouble promedioEstudianteMenor() {
+    public Integer promedioEstudianteMenor() {
         return studentService.promedioEstudianteMenor();
     }
 
     @GetMapping("/students/datos")
-    public Stream<String> getDatosStudents(){
+    public String getDatosStudents(){
         return studentService.getDatosStudents();
     }
 

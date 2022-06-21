@@ -108,18 +108,17 @@ class StudentServiceImplTest {
 
 
     @Test
-    void promedioEstudianteMenor() {
+    void promedioEstudianteMayor() {
         when(studentRepository.findAll()).thenReturn(studentList);
-        assertEquals(14.5, studentService.promedioEstudianteMenor());
+        assertEquals( 34, studentService.promedioEstudianteMayor());
     }
-
 
     @Test
-    void estudianteMenor() {
+    void promedioEstudianteMenor() {
         when(studentRepository.findAll()).thenReturn(studentList);
-//        List<Student> menores = List.of(new Student(5L, "Recannati", "Barbara",  LocalDate.of(1986,11,28)));
-        assertEquals(33, studentService.estudianteMenor());
+        assertEquals( 14, studentService.promedioEstudianteMenor());
     }
+
 
 
 

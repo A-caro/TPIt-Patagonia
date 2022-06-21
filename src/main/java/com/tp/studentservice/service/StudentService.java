@@ -25,15 +25,16 @@ public interface StudentService {
 
     int estudianteConMenosEdad();
 
-    Stream<String> getDatosStudents();
+    String getDatosStudents();
 
     List<Student> estudianteMayor();
 
     List<Student> estudianteMenor();
 
-    OptionalDouble promedioEstudianteMayor();
+    Integer promedioEstudianteMayor();
 
-    OptionalDouble promedioEstudianteMenor();
-
+    Integer promedioEstudianteMenor();
 
 }
+
+
