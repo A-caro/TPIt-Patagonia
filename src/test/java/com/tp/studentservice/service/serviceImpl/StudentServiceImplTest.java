@@ -105,8 +105,6 @@ class StudentServiceImplTest {
     }
 
 
-
-
     @Test
     void promedioEstudianteMayor() {
         when(studentRepository.findAll()).thenReturn(studentList);
@@ -120,7 +118,7 @@ class StudentServiceImplTest {
     }
 
 
-
+//No supe resolver el resto de los test.
 
 
 

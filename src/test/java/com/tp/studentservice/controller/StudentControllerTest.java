@@ -68,13 +68,5 @@ class StudentControllerTest {
 
     }
 
-/*    @Test
-    void deleteStudent() throws Exception {
-        List<Student> studentList = new ArrayList<>();
-        studentList.add(new Student(1L, "Recannati", "Barbara",  LocalDate.of(1986,11,28)));
-        doNothing().when(studentService).deleteStudent(1L);
-        mockMvc.perform(MockMvcRequestBuilders.delete
-                ("delete/students/{id}", 1L))
-                .andExpect(MockMvcResultMatchers.status().is(200));
-    }*/
+//No supe resolver el resto de los test, me encontré con errores que no pude solucionar.
 }

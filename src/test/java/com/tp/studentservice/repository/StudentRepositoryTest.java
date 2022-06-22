@@ -57,9 +57,9 @@ class StudentRepositoryTest {
 
    @Test
     void delete(){
-    Student student = studentRepository.findById(3L).get();
+    Student student = studentRepository.save(new Student(5L, "Nicole", "Nicky", LocalDate.of(2000,8,25)));
     studentRepository.delete(student);
-    assertTrue(studentRepository.findById(student.getId()).isPresent());
+    assertFalse(studentRepository.findById(5L).isPresent());
 
 
    }
