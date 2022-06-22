@@ -19,13 +19,6 @@ class StudentRepositoryTest {
     StudentRepository studentRepository;
 
 
-
-
-    @BeforeEach
-    void setUp() {
-
-    }
-
     @Test
     void findById(){
         assertTrue(studentRepository.findById(3L).isPresent());
