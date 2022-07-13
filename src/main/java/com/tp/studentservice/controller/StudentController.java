@@ -11,34 +11,37 @@ import java.util.OptionalDouble;
 import java.util.stream.Stream;
 
 @RestController
+@RequestMapping("/students")
+
 public class StudentController {
 
     @Autowired
     StudentServiceImpl studentService;
 
-    @GetMapping("/student/{id}")
+    @GetMapping("/{id}")
     public Optional<Student> findById(@PathVariable Long id) {
         return studentService.findById(id);
     }
 
-    @GetMapping("/students")
+    @GetMapping("/list")
     public List<Student> findAllStudent() {
         return studentService.findAllStudent();
     }
 
-    @PostMapping("/create/students")
+    @PostMapping("")
     public Student createStudent(@RequestBody Student createStudent) {
         return studentService.createStudent(createStudent);
     }
 
-    @PutMapping("/update/students")
+    @PutMapping("/update")
     public Student updateStudent(@RequestBody Student updateStudent) {
         return studentService.updateStudent(updateStudent);
     }
 
-    @DeleteMapping("delete/students/{id}")
+    @DeleteMapping("delete/{id}")
     public void deleteStudent(@PathVariable Long id) {
         studentService.deleteStudent(id);
+
     }
 
     @GetMapping("/edad/promedio")
@@ -46,38 +49,38 @@ public class StudentController {
         return studentService.edadPromedio();
     }
 
-    @GetMapping("/student/con/mas/edad")
+    @GetMapping("/older")
     public int estudianteConMasEdad() {
         return studentService.estudianteConMasEdad();
     }
 
-    @GetMapping("/student/con/menos/edad")
+    @GetMapping("/younger")
     public int estudianteConMenosEdad() {
         return studentService.estudianteConMenosEdad();
     }
 
-    @GetMapping("/student/mayor")
+    @GetMapping("/mayor")
     public List<Student> listarMayores() {
         return studentService.estudianteMayor();
     }
 
-    @GetMapping("/estudianteMenor")
+    @GetMapping("/menor")
         public List<Student> listarMenores(){
             return studentService.estudianteMenor();
         }
 
 
-    @GetMapping("/studentMayor/promedio")
+    @GetMapping("/mayorpromedio")
     public Integer promedioEstudianteMayor() {
         return studentService.promedioEstudianteMayor();
     }
 
-    @GetMapping("/studentMenor/promedio")
+    @GetMapping("/menorpromedio")
     public Integer promedioEstudianteMenor() {
         return studentService.promedioEstudianteMenor();
     }
 
-    @GetMapping("/students/datos")
+    @GetMapping("/datos")
     public String getDatosStudents(){
         return studentService.getDatosStudents();
     }
